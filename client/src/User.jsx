@@ -1,4 +1,4 @@
-import { useContext} from 'react';
+import { useContext } from "react";
 import { UserContext } from "./UserContext.jsx";
 
 export function User() {
@@ -7,15 +7,15 @@ export function User() {
   if (!user) return null;
 
   return (
-    <div className='user'>
+    <div className="user">
       <h3>
-        Welcome, {
-          (user.first_name && user.last_name)
-            ? `${user.first_name} ${user.last_name}`
-            : user.email
-        }!
+        Welcome,{" "}
+        {user.user.first_name && user.user.last_name
+          ? `${user.user.first_name} ${user.user.last_name}`
+          : user.user.email}
+        !
       </h3>
-      <button onClick={ logout }>Logout</button>
+      <button onClick={logout}>Logout</button>
     </div>
   );
 }
