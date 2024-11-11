@@ -13,9 +13,16 @@ https://docs.djangoproject.com/en/4.2/topics/db/models/
 """
 
 from django.db import models
+from django.contrib.auth.models import User
 
+class BaseModel(models.Model):
+    objects = models.Manager()
 
-class Security(models.Model):
+    class Meta:
+        abstract = True
+
+# TODO: Add unique key on ticker
+class Security(BaseModel):
     """
     Represents a Stock or ETF trading in the US stock market, i.e. Apple,
     Google, SPDR S&P 500 ETF Trust, etc.
@@ -25,7 +32,7 @@ class Security(models.Model):
     name = models.TextField(null=False, blank=False)
 
     # The security’s ticker (e.g. NFLX)
-    ticker = models.TextField(null=False, blank=False)
+    ticker = models.TextField(null=False, blank=False, unique=True)
 
     # This field is used to store the last price of a security
     last_price = models.DecimalField(
@@ -34,3 +41,14 @@ class Security(models.Model):
 
     # TODO: Add additional fields here.
     # ex: description, exchange name, etc.
+
+
+# TODO: Add unique constraint on ticker and user
+class Subscription(BaseModel):
+    security = models.ForeignKey(Security, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(name="unique_security_id_user_id", fields=['security_id', 'user_id'])
+        ]

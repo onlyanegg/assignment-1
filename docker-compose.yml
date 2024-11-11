@@ -16,6 +16,32 @@ services:
       - db
       - redis
 
+  celery-beat:
+    image: web:local
+    build:
+      context: ./django
+      dockerfile: Dockerfile
+    hostname: web
+    command: celery -A casestudy.tasks beat
+    volumes:
+      - ./django:/app
+    depends_on:
+      - db
+      - redis
+
+  celery-worker:
+    image: web:local
+    build:
+      context: ./django
+      dockerfile: Dockerfile
+    hostname: web
+    command: celery -A casestudy.tasks worker
+    volumes:
+      - ./django:/app
+    depends_on:
+      - db
+      - redis
+
   # Postgres
   db:
     image: postgres:15-alpine3.18

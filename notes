@@ -11,11 +11,14 @@
   - I'll design for what I have now. And maybe update it in v1
 - Is there already a login endpoint?
   - yes
+- How do I do authentication in views?
+- How do I get request headers?
+- how come the securities doesn't have id?
 
 # v0
 
-- list tickers
-  - GET /tickers
+- list securities
+  - GET /securities
 - add to watchlist
   - POST /subscriptions {symbol: "APPL"}
 - remove from watchlist
@@ -33,3 +36,4 @@
 - Add search endpoint
   - /search?q=apple
   - does case-insensitive search on symbols and name
+- migrate to uuids for users
