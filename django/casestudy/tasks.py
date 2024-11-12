@@ -14,9 +14,9 @@ app = Celery('tasks', broker='redis://redis')
 @app.task(name="update_tickers")
 def update_tickers():
     tickers = requests.get(
-        url="https://app.albert.com/casestudy/stock/tickers/",
+        url="https://app.company.com/casestudy/stock/tickers/",
         headers={
-            "Albert-Case-Study-API-key": "d2db5753-33f6-4e25-b915-6cbdda7953e7"
+            "Company-Case-Study-API-key": "d2db5753-33f6-4e25-b915-6cbdda7953e7"
         }
     )
     securities = [Security(name=name, ticker=ticker) for ticker, name in tickers.json().items()]
@@ -28,12 +28,12 @@ def update_prices():
     subscriptions = Subscription.objects.prefetch_related("security").distinct('security')
     tickers = ",".join(s.security.ticker for s in subscriptions)
     prices = requests.get(
-        url="https://app.albert.com/casestudy/stock/prices/",
+        url="https://app.company.com/casestudy/stock/prices/",
         params={
             "tickers": tickers
         },
         headers={
-            "Albert-Case-Study-API-key": "d2db5753-33f6-4e25-b915-6cbdda7953e7"
+            "Company-Case-Study-API-key": "d2db5753-33f6-4e25-b915-6cbdda7953e7"
         }
     )
 

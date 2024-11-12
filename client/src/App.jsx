@@ -20,7 +20,7 @@ function App() {
         <div className="app">
           <LoginForm />
           <header>
-            <h1>Albert stock watch</h1>
+            <h1>Stock watch</h1>
             <User />
           </header>
           {user && <Something />}

@@ -1,3 +1,3 @@
-GET https://app.albert.com/casestudy/stock/prices/?tickers=AAPL,MSFT
+GET https://app.company.com/casestudy/stock/prices/?tickers=AAPL,MSFT
 
-Albert-Case-Study-API-Key: {{ ALBERT_API_KEY }}
+Company-Case-Study-API-Key: {{ COMPANY_API_KEY }}

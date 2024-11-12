@@ -1,7 +1,7 @@
-## Albert product engineering case study
-Welcome to the Albert product engineering case study. At Albert, we value focused work and shipping product. 
+## Product engineering case study
+Welcome to the product engineering case study. At Company, we value focused work and shipping product. 
 Instead of spending hours interviewing and talking about building things, we would like to give you the opportunity to show us what you can actually build. 
-Please approach this case study as if you were working on a real project at Albert with production quality design decisions, architecture, documentation, and code. 
+Please approach this case study as if you were working on a real project at Company with production quality design decisions, architecture, documentation, and code. 
 
 ### The project
 - Build a stock watchlist service and client application that allows users to view their favorite stock prices.
@@ -16,14 +16,14 @@ Please approach this case study as if you were working on a real project at Albe
 
 ### Setup
 #### Stock APIs 
-- Albert has a set of REST endpoints to provide stock information for the case study. Treat this API as a 3rd party integration with a per API call pricing model and limit the number of calls you make directly to this API.
-- You will need to use the API key provided in the case study email to access the endpoints. Pass the API key in an `Albert-Case-Study-API-Key` header to the REST endpoints.
+- Company has a set of REST endpoints to provide stock information for the case study. Treat this API as a 3rd party integration with a per API call pricing model and limit the number of calls you make directly to this API.
+- You will need to use the API key provided in the case study email to access the endpoints. Pass the API key in an `Company-Case-Study-API-Key` header to the REST endpoints.
 - The API provides two endpoints, one to get a list of available stock tickers and another to get the current stock prices.
 
 `GET /casestudy/stock/tickers/` 
 - Returns a list of the stock tickers and company names that are available for use with the case study.
 ```commandline
-curl "https://app.albert.com/casestudy/stock/tickers/" -H "Albert-Case-Study-API-Key: <token>"
+curl "https://app.company.com/casestudy/stock/tickers/" -H "Company-Case-Study-API-Key: <token>"
 
 {
     "AAPL": "Apple",
@@ -34,7 +34,7 @@ curl "https://app.albert.com/casestudy/stock/tickers/" -H "Albert-Case-Study-API
 `GET /casestudy/stock/prices/?tickers=[TICKERS]` 
 - Returns the current price for each of the tickets.
 ```commandline
-curl "https://app.albert.com/casestudy/stock/prices/?tickers=AAPL,MSFT" -H "Albert-Case-Study-API-Key: <token>"
+curl "https://app.company.com/casestudy/stock/prices/?tickers=AAPL,MSFT" -H "Company-Case-Study-API-Key: <token>"
 
 {
     "AAPL": 122.21,

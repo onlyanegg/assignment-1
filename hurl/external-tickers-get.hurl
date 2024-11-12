@@ -1,3 +1,3 @@
-GET https://app.albert.com/casestudy/stock/tickers/
+GET https://app.company.com/casestudy/stock/tickers/
 
-Albert-Case-Study-API-Key: {{ ALBERT_API_KEY }}
+Company-Case-Study-API-Key: {{ ALBERT_API_KEY }}

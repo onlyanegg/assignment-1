@@ -29,6 +29,6 @@ urlpatterns = [
 
     path(route='securities/', view=SecuritiesView.as_view(), name='securities'),
     path(route='subscriptions/', view=SubscriptionsView.as_view(), name='subscriptions'),
-    path(route='subscriptions/<slug:ticker>', view=SubscriptionView.as_view(), name='subscription'),
+    path(route='subscriptions/<str:ticker>', view=SubscriptionView.as_view(), name='subscription'),
     path(route='debug/', view=DebugView.as_view(), name='debug')
 ]

@@ -96,7 +96,7 @@ class DebugView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
-        tickers = requests.get("https://app.albert.com/casestudy/stock/tickers/", headers={"Albert-Case-Study-API-key": "d2db5753-33f6-4e25-b915-6cbdda7953e7"})
+        tickers = requests.get("https://app.company.com/casestudy/stock/tickers/", headers={"Company-Case-Study-API-key": "d2db5753-33f6-4e25-b915-6cbdda7953e7"})
         securities = [Security(name=name, ticker=ticker) for ticker, name in tickers.json().items()]
         Security.objects.bulk_create(securities, ignore_conflicts=True)
 
